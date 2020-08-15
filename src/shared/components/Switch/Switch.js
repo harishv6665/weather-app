@@ -23,8 +23,8 @@ const Switch = ({ onChange, checked, customStyles }) => (
 )
 
 Switch.propTypes = {
-    onChange: PropTypes.func,
-    checked: PropTypes.bool,
+    onChange: PropTypes.func.isRequired,
+    checked: PropTypes.bool.isRequired,
     customStyles: PropTypes.shape({
         switch: PropTypes.string,
         switch__circle: PropTypes.string,

@@ -1,5 +1,5 @@
 .wrapper {
-    padding-top: 32px;
+    padding-top: 24px;
 }
 
 .title {
@@ -10,6 +10,7 @@
 
 .chartContainer {
     margin-top: 16px;
+    max-width: 560px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -20,5 +21,6 @@
     .chartContainer {
         display: flex;
         justify-content: center;
+        margin: auto;
     }
 }

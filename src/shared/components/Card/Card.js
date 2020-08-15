@@ -10,7 +10,7 @@ const Card = ({ children, customStyles, onClick }) => (
 )
 
 Card.propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.element.isRequired,
     customStyles: PropTypes.shape({
         card: PropTypes.string
     }),

@@ -14,6 +14,16 @@
     font-weight: 600;
 }
 
+.forecast__switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.forecast__switch__label {
+    font-size: 16px;
+}
+
 .forecast__buttonGroup {
     display: flex;
 }
@@ -28,20 +38,17 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    margin-left: 24px;
 }
 
 .forecast__button:before {
-    content: '';
+    content: "";
     position: absolute;
     width: 8px;
     height: 8px;
     border: 2px solid var(--white);
     border-radius: 2px;
     transform: rotate(45deg);
-}
-
-.forecast__buttonPrev {
-    margin-right: 24px;
 }
 
 .forecast__buttonPrev:before {

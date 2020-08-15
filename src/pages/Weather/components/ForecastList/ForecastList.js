@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
-import Button from "../../../../shared/components/Button/Button";
 import ForecastCard from "../ForecastCard/ForecastCard";
 import styles from "./ForecastList.module.css";
+import {Button, Switch} from "../../../../shared/components";
 
-const ForecastList = ({ list, activeForecastDate, setActiveForecastDate, isCelsius }) => {
+const ForecastList = ({ list, activeForecastDate, setActiveForecastDate, isCelsius, setIsCelsius, city }) => {
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize] = useState(3);
@@ -14,7 +14,7 @@ const ForecastList = ({ list, activeForecastDate, setActiveForecastDate, isCelsi
         setData(list);
         setTotalPages(Math.ceil(list.length / pageSize));
         setActiveForecastDate(list[0].date);
-    }, [list, pageSize, setActiveForecastDate]);
+    }, [list]);
 
     const getPageData = () => {
         const endIndex = currentPage * pageSize;
@@ -37,8 +37,16 @@ const ForecastList = ({ list, activeForecastDate, setActiveForecastDate, isCelsi
     return (
         <div className={styles.forecast}>
             <div className={styles.forecast__header}>
-                <h2 className={styles.forecast__title}>Weather</h2>
+                <h2 className={styles.forecast__title}>{city}</h2>
                 <div className={styles.forecast__buttonGroup}>
+                    <label className={styles.forecast__switch}>
+                        <span className={styles.forecast__switch__label}>ºF</span>
+                        <Switch
+                            checked={isCelsius}
+                            onChange={setIsCelsius}
+                        />
+                        <span className={styles.forecast__switch__label}>ºC</span>
+                    </label>
                     <Button
                         onClick={() => onPrevPage()}
                         disabled={!(currentPage > 1)}
@@ -71,17 +79,21 @@ const ForecastList = ({ list, activeForecastDate, setActiveForecastDate, isCelsi
 }
 
 ForecastList.propTypes = {
-    list: PropTypes.array,
-    activeForecastDate: PropTypes.string,
-    setActiveForecastDate: PropTypes.func,
-    isCelsius: PropTypes.bool,
+    city: PropTypes.string.isRequired,
+    list: PropTypes.array.isRequired,
+    activeForecastDate: PropTypes.string.isRequired,
+    isCelsius: PropTypes.bool.isRequired,
+    setActiveForecastDate: PropTypes.func.isRequired,
+    setIsCelsius: PropTypes.func.isRequired,
 }
 
 ForecastList.defaultProps = {
+    city: "",
     list: [],
     activeForecastDate: "",
+    isCelsius: false,
     setActiveForecastDate: () => {},
-    isCelsius: true,
+    setIsCelsius: () => {},
 }
 
 export default ForecastList;

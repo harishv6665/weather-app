@@ -1,34 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styles from "./Header.module.css";
-import Switch from "../Switch/Switch";
 
-const Header = ({ title, isCelsius, setIsCelsius }) => (
+const Header = () => (
     <header className={styles.header}>
         <div className={styles.container}>
-            <h1 className={styles.header__title}>{title}</h1>
-            <label className={styles.header__switch}>
-                <span className={styles.header__switch__label}>ºF</span>
-                <Switch
-                    checked={isCelsius}
-                    onChange={setIsCelsius}
-                />
-                <span className={styles.header__switch__label}>ºC</span>
-            </label>
+            <h1 className={styles.header__title}>Weather</h1>
         </div>
     </header>
 )
 
-Header.propTypes = {
-    title: PropTypes.string,
-    isCelsius: PropTypes.bool,
-    setIsCelsius: PropTypes.func,
-}
+Header.propTypes = {}
 
-Header.defaultProps = {
-    title: "",
-    isCelsius: false,
-    setIsCelsius: () => {}
-}
+Header.defaultProps = {}
 
 export default Header;

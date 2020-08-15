@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
-import styles from './Button.module.css';
+import styles from "./Button.module.css";
 
 export const variantTypes = {
     invert: "invert",
@@ -12,7 +12,7 @@ const Button = ({ children, onClick, variant, customStyles = {}, type, disabled 
         className={`
             ${styles.button}
             ${customStyles.button}
-            ${variantTypes[variant] ? [styles[variantTypes[variant]]] : ''}
+            ${variantTypes[variant] ? [styles[variantTypes[variant]]] : ""}
         `}
         type={type}
         onClick={onClick}
@@ -21,7 +21,7 @@ const Button = ({ children, onClick, variant, customStyles = {}, type, disabled 
 );
 
 Button.propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     onClick: PropTypes.func,
     variantTypes: PropTypes.oneOf(["", "invert", "danger"]), // from variantTypes
     customStyles: PropTypes.object,

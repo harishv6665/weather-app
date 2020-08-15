@@ -7,8 +7,9 @@
 }
 
 body {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   background: var(--primaryBg);
   color: var(--primaryText);
+  fill: var(--primaryText);
   font-size: 14px;
 }
