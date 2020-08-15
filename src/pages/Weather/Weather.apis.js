@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = "75f972b80e26f14fe6c920aa6a85ad57"; //TODO: should be stored in .env or secure place
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY; //Picked up from github secrets
 
 const getWeather = async () => {
     const location = "Munich,de";
