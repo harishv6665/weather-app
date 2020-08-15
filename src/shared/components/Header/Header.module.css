@@ -1,0 +1,32 @@
+.header {
+    height: 56px;
+    border-bottom: 1px solid var(--primaryBorder);
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+}
+
+.header__title {
+    font-size: 20px;
+    color: var(--primaryText);
+    font-weight: 600;
+}
+
+.header__switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header__switch__label {
+    font-size: 16px;
+}
+
+.container {
+    padding: 0 24px;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

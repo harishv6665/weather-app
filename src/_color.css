@@ -1,0 +1,19 @@
+:root {
+    --primaryBg: #f1f6fd;
+    --primaryText: #333333;
+    --primaryBorder: #dde4e8;
+
+    --secondaryText: #688696;
+
+    --themeBg: #009fe3;
+
+    --errorBg: #ff055b;
+
+    /* GENERIC COLORS */
+    --white: #ffffff;
+    --black: #000000;
+
+    /* LOADER COLORS */
+    --loaderOverlay: rgba(255, 255, 255, 0.7);
+    --loaderSpinner: var(--themeBg);
+}
