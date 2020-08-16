@@ -3,6 +3,6 @@ import weatherSlice from "../pages/Weather/Weather.slice";
 
 export default configureStore({
   reducer: {
-    weather: weatherSlice,
+    weather: weatherSlice.reducer,
   },
 });

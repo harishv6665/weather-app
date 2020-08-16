@@ -8,14 +8,16 @@ import ForecastCardField from "../ForecastCardField/ForecastCardField";
 
 const ForecastCard = ({ data, isActive, onCardClick, isCelsius }) => (
     <Card customStyles={{ card: `${styles.card} ${isActive ? styles.active: ""}`}} onClick={onCardClick}>
-        <ForecastCardField
-            label="Date: "
-            value={moment(data.date).format("Do MMM YY")}
-        />
-        <ForecastCardField
-            label="Temp: "
-            value={`${temperatureConverter(data.avg_temp, isCelsius)} ${isCelsius ? " ºC" : " ºF"}`}
-        />
+        <React.Fragment>
+            <ForecastCardField
+                label="Date: "
+                value={moment(data.date).format("Do MMM YY")}
+            />
+            <ForecastCardField
+                label="Temp: "
+                value={`${temperatureConverter(data.avg_temp, isCelsius)} ${isCelsius ? " ºC" : " ºF"}`}
+            />
+        </React.Fragment>
     </Card>
 )
 

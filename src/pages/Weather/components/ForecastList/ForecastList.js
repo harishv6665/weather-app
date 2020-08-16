@@ -81,7 +81,7 @@ const ForecastList = ({ list, activeForecastDate, setActiveForecastDate, isCelsi
 ForecastList.propTypes = {
     city: PropTypes.string.isRequired,
     list: PropTypes.array.isRequired,
-    activeForecastDate: PropTypes.string.isRequired,
+    activeForecastDate: PropTypes.string,
     isCelsius: PropTypes.bool.isRequired,
     setActiveForecastDate: PropTypes.func.isRequired,
     setIsCelsius: PropTypes.func.isRequired,
