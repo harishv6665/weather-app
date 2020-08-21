@@ -10,6 +10,16 @@ object-assign
   http://jedwatson.github.io/classnames
 */
 
+/*!
+ * GSAP 3.5.0
+ * https://greensock.com
+ *
+ * @license Copyright 2008-2020, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
 /*! decimal.js-light v2.5.0 https://github.com/MikeMcl/decimal.js-light/LICENCE */
 
 /** @license React v0.19.1
