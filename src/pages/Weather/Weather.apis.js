@@ -1470,11 +1470,12 @@ export const fetchWeatherData = () => async dispatch => {
             cnt: "40",
             units: "metric"
         }
-        const response = await request(WEATHER_URL, params);
-        // const { list, city } = response;
-        const forecastByDate = groupWeatherByDate(response.data.list);
+        // const response = await request(WEATHER_URL, params);
+        const response = data;
+        const { list, city } = response;
+        const forecastByDate = groupWeatherByDate(list);
         const forecastList = getWeatherList(forecastByDate);
-        dispatch(fetchWeatherDataSuccess({ city: response.data.city, forecastByDate, forecastList }));
+        dispatch(fetchWeatherDataSuccess({ city, forecastByDate, forecastList }));
     } catch (error) {
         dispatch(setError(error.message || "Unknown error occurred"));
     }

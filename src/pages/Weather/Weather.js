@@ -23,12 +23,12 @@ const Weather = () => {
     }
 
     if (state.isLoading) {
-        return <Loading />
+        return <Loader />
     }
 
     return (
         <React.Fragment>
-            {state.forecastList.length &&<ForecastList
+            {state.forecastList.length && <ForecastList
                 list={state.forecastList}
                 isCelsius={isCelsius}
                 city={state.cityInfo.name}
