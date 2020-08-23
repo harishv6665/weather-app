@@ -7,6 +7,7 @@ const App = () => {
     const [showFlashScreen, setFlashScreen] = useState(true);
 
     useEffect(() => {
+        // intentionally added delay to show flash screen for a second
         setTimeout(() => {
             setFlashScreen(false);
             document.getElementById("flash-screen").style.display = "none";

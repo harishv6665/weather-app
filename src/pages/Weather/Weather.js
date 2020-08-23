@@ -14,6 +14,7 @@ const Weather = () => {
     const [activeForecastDate, setActiveForecastDate] = useState(null);
 
     useEffect(() => {
+        // intentionally added delay to show loader for 1.3 seconds
         setTimeout(() => {
             dispatch(fetchWeatherData());
         }, 1300)
