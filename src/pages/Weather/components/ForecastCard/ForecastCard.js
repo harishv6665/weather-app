@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from "react";
 import gsap, { TimelineMax } from "gsap";
-// import { CSSPlugin } from 'gsap/CSSPlugin';
+import { CSSPlugin } from 'gsap/CSSPlugin';
 import moment from "moment";
 import PropTypes from "prop-types";
 import {Card} from "../../../../shared/components";
@@ -9,7 +9,7 @@ import temperatureConverter from "../../../../shared/utils/temperatureConverter"
 import ForecastCardField from "../ForecastCardField/ForecastCardField";
 
 const ForecastCard = ({ data, isActive, onCardClick, isCelsius }) => {
-    // gsap.registerPlugin(CSSPlugin);
+    gsap.registerPlugin(CSSPlugin);
     const cardEl = useRef(null);
 
     useEffect(() => {
