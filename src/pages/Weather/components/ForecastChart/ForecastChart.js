@@ -52,11 +52,13 @@ const ForecastChart = ({ data, forecastDate, isCelsius }) => (
 ForecastChart.propTypes = {
     data: PropTypes.array.isRequired,
     forecastDate: PropTypes.string.isRequired,
+    isCelsius: PropTypes.bool
 }
 
 ForecastChart.defaultProps = {
     data: [],
-    forecastDate: ""
+    forecastDate: "",
+    isCelsius: false
 }
 
 export default ForecastChart;

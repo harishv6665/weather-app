@@ -29,7 +29,7 @@ export const groupWeatherByDate = (list) => {
  * @returns {number} average temperature for day
  */
 
-const getAverageTemperature = (day) => {
+export const getAverageTemperature = (day) => {
     const sumTemp = day.reduce((acc, item) => {
         acc += item.main.temp;
         return acc;

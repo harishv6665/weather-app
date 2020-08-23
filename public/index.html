@@ -1,27 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
-      name="description"
-      content="Weather app using Open weather API"
+            name="description"
+            content="Weather app using Open weather API"
     />
     <title>Weather App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <style>
+        .flash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        .flash-screen__title {
+            font-size: 38px;
+            margin: 0;
+        }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+        .flash-screen__hero {
+            display: flex;
+            align-items: center;
+            margin: 20px 0 15px;
+        }
+
+        .flash-screen__hero__title {
+            margin: 0;
+            font-size: 18px;
+            padding-right: 16px;
+            font-weight: 400;
+        }
+
+        .flash-screen__secondary__title {
+            font-size: 28px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="flash-screen" class="flash-screen">
+    <h1 class="flash-screen__title">Weather App</h1>
+    <div class="flash-screen__hero">
+        <h3 class="flash-screen__hero__title">Powered by: </h3>
+        <img src="%PUBLIC_URL%/open-weather-logo.png" alt="Open weather" height="40px">
+    </div>
+    <span class="flash-screen__secondary__title">Loading...</span>
+</div>
+<div id="root"></div>
+<!--
+  This HTML file is a template.
+  If you open it directly in the browser, you will see an empty page.
+
+  You can add webfonts, meta tags, or analytics to this file.
+  The build step will place the bundled scripts into the <body> tag.
+
+  To begin the development, run `npm start` or `yarn start`.
+  To create a production bundle, use `npm run build` or `yarn build`.
+-->
+</body>
 </html>

@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from "react";
-import { TimelineMax } from "gsap";
+import gsap, { TimelineMax } from "gsap";
+// import { CSSPlugin } from 'gsap/CSSPlugin';
 import moment from "moment";
 import PropTypes from "prop-types";
 import {Card} from "../../../../shared/components";
@@ -8,10 +9,11 @@ import temperatureConverter from "../../../../shared/utils/temperatureConverter"
 import ForecastCardField from "../ForecastCardField/ForecastCardField";
 
 const ForecastCard = ({ data, isActive, onCardClick, isCelsius }) => {
-    const tween = new TimelineMax();
+    // gsap.registerPlugin(CSSPlugin);
     const cardEl = useRef(null);
 
     useEffect(() => {
+        const tween = new TimelineMax();
         tween.fromTo(cardEl.current, { x: 35, alpha: 0 }, { x: 0, alpha: 1, duration: 0.45 });
     }, [])
 
@@ -41,8 +43,8 @@ ForecastCard.propTypes = {
 ForecastCard.defaultProps = {
     data: {},
     isActive: false,
+    isCelsius: false,
     onCardClick: () => {},
-    isCelsius: false
 }
 
 export default ForecastCard;

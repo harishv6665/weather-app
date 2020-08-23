@@ -4,7 +4,6 @@ import {Loader, Error} from "../../shared/components";
 import ForecastList from "./components/ForecastList/ForecastList";
 import ForecastChart from "./components/ForecastChart/ForecastChart";
 import {getChartData} from "./Weather.util";
-import styles from "./Weather.module.css";
 import {weatherSelector} from "./Weather.slice";
 import {fetchWeatherData} from "./Weather.apis";
 
@@ -15,7 +14,9 @@ const Weather = () => {
     const [activeForecastDate, setActiveForecastDate] = useState(null);
 
     useEffect(() => {
-        dispatch(fetchWeatherData());
+        setTimeout(() => {
+            dispatch(fetchWeatherData());
+        }, 1300)
     }, []);
 
     if (state.error) {
@@ -28,7 +29,7 @@ const Weather = () => {
 
     return (
         <React.Fragment>
-            {state.forecastList.length && <ForecastList
+            {!!state.forecastList.length && <ForecastList
                 list={state.forecastList}
                 isCelsius={isCelsius}
                 city={state.cityInfo.name}

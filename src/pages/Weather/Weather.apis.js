@@ -1460,7 +1460,7 @@ const data = {
 };
 
 const WEATHER_URL = "https://api.openweathermap.org/data/2.5/forecast";
-const API_KEY = "3dcbba7ca4300e233aff5675be8082ab--";
+const API_KEY = "3dcbba7ca4300e233aff5675be8082ab";
 
 export const fetchWeatherData = () => async dispatch => {
     try {
@@ -1471,8 +1471,8 @@ export const fetchWeatherData = () => async dispatch => {
             units: "metric"
         }
         // const response = await request(WEATHER_URL, params);
-        const response = data;
-        const { list, city } = response;
+        const response = {data};
+        const { list, city } = response.data;
         const forecastByDate = groupWeatherByDate(list);
         const forecastList = getWeatherList(forecastByDate);
         dispatch(fetchWeatherDataSuccess({ city, forecastByDate, forecastList }));
