@@ -1,18 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Weather from "./pages/Weather/Weather";
 import {Header} from "./shared/components";
 import styles from "./pages/Weather/Weather.module.css";
+import useFlashScreen from "./useFlashScreen";
 
 const App = () => {
-    const [showFlashScreen, setFlashScreen] = useState(true);
-
-    useEffect(() => {
-        // intentionally added delay to show flash screen for a second
-        setTimeout(() => {
-            setFlashScreen(false);
-            document.getElementById("flash-screen").style.display = "none";
-        }, 1000)
-    }, []);
+    const showFlashScreen = useFlashScreen();
 
     if (showFlashScreen) {
         return null;

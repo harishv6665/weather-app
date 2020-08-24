@@ -1,24 +1,18 @@
-import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import React from "react";
 import {Loader, Error} from "../../shared/components";
 import ForecastList from "./components/ForecastList/ForecastList";
 import ForecastChart from "./components/ForecastChart/ForecastChart";
 import {getChartData} from "./Weather.util";
-import {weatherSelector} from "./Weather.slice";
-import {fetchWeatherData} from "./Weather.apis";
+import useWeather from "./useWeather";
 
 const Weather = () => {
-    const state = useSelector(weatherSelector);
-    const dispatch = useDispatch();
-    const [isCelsius, setIsCelsius] = useState(false);
-    const [activeForecastDate, setActiveForecastDate] = useState(null);
-
-    useEffect(() => {
-        // intentionally added delay to show loader for 1.3 seconds
-        setTimeout(() => {
-            dispatch(fetchWeatherData());
-        }, 1300)
-    }, []);
+    const {
+        state,
+        isCelsius,
+        setIsCelsius,
+        activeForecastDate,
+        setActiveForecastDate
+    } = useWeather();
 
     if (state.error) {
         return <Error message={state.error} />
@@ -36,7 +30,7 @@ const Weather = () => {
                 city={state.cityInfo.name}
                 setIsCelsius={() => setIsCelsius(!isCelsius)}
                 activeForecastDate={activeForecastDate}
-                setActiveForecastDate={date => setActiveForecastDate(date)}
+                setActiveForecastDate={setActiveForecastDate}
             />}
             {activeForecastDate && <ForecastChart
                 forecastDate={activeForecastDate}

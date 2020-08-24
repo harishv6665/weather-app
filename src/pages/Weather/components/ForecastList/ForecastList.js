@@ -1,38 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import ForecastCard from "../ForecastCard/ForecastCard";
 import styles from "./ForecastList.module.css";
 import {Button, Switch} from "../../../../shared/components";
+import useForecastList from "./useForecastList";
 
 const ForecastList = ({ list, activeForecastDate, setActiveForecastDate, isCelsius, setIsCelsius, city }) => {
-    const [data, setData] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize] = useState(3);
-    const [totalPages, setTotalPages] = useState(0);
-
-    useEffect(() => {
-        setData(list);
-        setTotalPages(Math.ceil(list.length / pageSize));
-        setActiveForecastDate(list[0].date);
-    }, [list]);
-
-    const getPageData = () => {
-        const endIndex = currentPage * pageSize;
-        const startIndex = endIndex - pageSize;
-        return data.slice(startIndex, endIndex);
-    }
-
-    const onPrevPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
-    }
-
-    const onNextPage = () => {
-        if (totalPages > currentPage) {
-            setCurrentPage(currentPage + 1);
-        }
-    }
+    const {
+        getPageData,
+        onPrevPage,
+        onNextPage,
+        totalPages,
+        currentPage,
+    } = useForecastList(list, setActiveForecastDate)
 
     return (
         <div className={styles.forecast}>
