@@ -9,6 +9,7 @@ const weatherInitialState = {
 };
 
 export const weatherSelector = state => ({
+    error: state.weather.error,
     isLoading: state.weather.isLoading,
     cityInfo: state.weather.cityInfo,
     forecastList: state.weather.forecastList,
